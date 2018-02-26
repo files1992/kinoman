@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Kinoman.UnitTests.Enums;
+using NUnit.Framework;
 
 namespace Kinoman.UnitTests
 {
@@ -15,6 +16,13 @@ namespace Kinoman.UnitTests
         }
 
         [Test]
-        public void 
+        public void SampleDeserializerTests()
+        {
+            var expected = "15-17-do-paryza";
+            var jsonString = GetTestData.GetSampleResponse(FileType.MultiKino);
+            var deserializedObject = Sut.Deserialize(jsonString);
+            
+            Assert.That(expected,Is.EqualTo(deserializedObject.Films[0].FilmPageName));
+        }
     }
 }

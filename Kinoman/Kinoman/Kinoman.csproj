@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>31d718c1-2d1b-4df9-a7da-5d215a0b3d93</ProjectGuid>
+    <ProjectGuid>{31D718C1-2D1B-4DF9-A7DA-5D215A0B3D93}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Kinoman</RootNamespace>
@@ -30,24 +30,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\MultiKino\Categories.cs" />
+    <Compile Include="Entities\MultiKino\CategoriesName.cs" />
+    <Compile Include="Entities\MultiKino\Film.cs" />
+    <Compile Include="Entities\MultiKino\MultiKinoShowing.cs" />
+    <Compile Include="Entities\MultiKino\PromoLabels.cs" />
+    <Compile Include="Entities\MultiKino\PromoLabelsName.cs" />
+    <Compile Include="Entities\MultiKino\Showing.cs" />
+    <Compile Include="Entities\MultiKino\ShowingType.cs" />
+    <Compile Include="Entities\MultiKino\Tag.cs" />
+    <Compile Include="Entities\MultiKino\Time.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
