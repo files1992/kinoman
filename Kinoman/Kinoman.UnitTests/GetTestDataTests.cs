@@ -16,8 +16,6 @@ namespace Kinoman.UnitTests
         [Test]
         public void ReadFileTest()
         {
-            var Sut = new FileDataProvider();
-
             var contents = Sut.GetSampleResponse();
 
             Assert.That(contents, Is.Not.Null);
