@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Kinoman.UnitTests.Enums;
 
 namespace Kinoman.UnitTests
@@ -10,9 +11,10 @@ namespace Kinoman.UnitTests
             {FileType.MultiKino,"TestData/MultiKino.json"}
         };
 
-        public string GetSampleResponse()
+        public string GetSampleResponse(FileType fileOption = FileType.MultiKino)
         {
-            return null;
+            var data = File.ReadAllText(Path[fileOption]);
+            return data;
         }
     }
 }
