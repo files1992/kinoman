@@ -56,5 +56,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kinoman\Kinoman.csproj">
+      <Project>{31d718c1-2d1b-4df9-a7da-5d215a0b3d93}</Project>
+      <Name>Kinoman</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

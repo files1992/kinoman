@@ -1,4 +1,6 @@
-﻿using Kinoman.UnitTests.Enums;
+﻿using Kinoman.Entities.MultiKino;
+using Kinoman.Services.Impl;
+using Kinoman.UnitTests.Enums;
 using NUnit.Framework;
 
 namespace Kinoman.UnitTests
@@ -16,13 +18,14 @@ namespace Kinoman.UnitTests
         }
 
         [Test]
-        public void SampleDeserializerTests()
+        public void MultiKinoSampleDeserializerTests()
         {
-            var expected = "15-17-do-paryza";
-            var jsonString = GetTestData.GetSampleResponse(FileType.MultiKino);
-            var deserializedObject = Sut.Deserialize(jsonString);
-            
-            Assert.That(expected,Is.EqualTo(deserializedObject.Films[0].FilmPageName));
+            var expected = "15:17 do Paryza";
+            var jsonString = GetTestData.GetSampleResponse();
+            var deserializedObject = Sut.Deserialize<MultiKinoShowing>(jsonString);
+            var serviceFilmPageNameoutput = deserializedObject.Films[0].Title;
+
+            Assert.That(expected,Is.EqualTo(serviceFilmPageNameoutput));
         }
     }
 }
