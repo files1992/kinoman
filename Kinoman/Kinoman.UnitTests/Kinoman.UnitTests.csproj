@@ -59,6 +59,7 @@
     <Compile Include="Enums\FileType.cs" />
     <Compile Include="GetTestData.cs" />
     <Compile Include="GetTestDataTests.cs" />
+    <Compile Include="MultiKinoUrlProviderServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

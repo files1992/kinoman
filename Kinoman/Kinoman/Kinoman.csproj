@@ -57,6 +57,7 @@
     <Compile Include="Entities\MultiKino\ShowingType.cs" />
     <Compile Include="Entities\MultiKino\Tag.cs" />
     <Compile Include="Entities\MultiKino\Time.cs" />
+    <Compile Include="Enums\Cities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IDataProviderService.cs" />
     <Compile Include="Services\IDeserializer.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Services\Impl\DataProviderService.cs" />
     <Compile Include="Services\Impl\Deserializer.cs" />
     <Compile Include="Services\Impl\DownloadService.cs" />
+    <Compile Include="Services\IMultiKinoUrlProviderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
