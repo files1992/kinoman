@@ -46,6 +46,9 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\MultiKino\Categories.cs" />
     <Compile Include="Entities\MultiKino\CategoriesName.cs" />
+    <Compile Include="Entities\MultiKino\Cities\Cinema.cs" />
+    <Compile Include="Entities\MultiKino\Cities\MultiKinoCity.cs" />
+    <Compile Include="Entities\MultiKino\Cities\Venue.cs" />
     <Compile Include="Entities\MultiKino\Film.cs" />
     <Compile Include="Entities\MultiKino\MultiKinoShowing.cs" />
     <Compile Include="Entities\MultiKino\PromoLabels.cs" />
