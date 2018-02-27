@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Kinoman.Entities.MultiKino;
 using Kinoman.Enums;
 
 namespace Kinoman.Services.Impl
@@ -23,25 +23,6 @@ namespace Kinoman.Services.Impl
             var stringData = _downloadService.DownloadData("d");
             var deserializedData = _deserializer.Deserialize<T>(await stringData);
             return deserializedData;
-        }
-    }
-
-    public class MultiKinoUrlProviderService : IMultiKinoUrlProviderService
-    {
-        private IDownloadService _downloadService;
-        private IDeserializer _deserializer;
-        private Cities _city;
-
-        public MultiKinoUrlProviderService(IDownloadService downloadService,IDeserializer deserializer, Cities city)
-        {
-            downloadService = _downloadService;
-            deserializer = _deserializer;;
-            city = _city;
-
-        }
-        public List<string> GetUrl(Cities city)
-        {
-            return null;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Kinoman.UnitTests
         [Test]
         public void CheckThatDownloadDataMethodIsCalledInUrlProviderService()
         {
-            var result = _sut.GetUrl(Arg.Any<Cities>());
+            var result = _sut.GetUrl(_city);
             _downloadServiceMock.Received(1).DownloadData(Arg.Any<string>());
         }
     }
