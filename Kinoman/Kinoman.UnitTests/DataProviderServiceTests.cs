@@ -1,4 +1,5 @@
 ﻿using Kinoman.Entities.MultiKino;
+using Kinoman.Enums;
 using Kinoman.Services;
 using Kinoman.Services.Impl;
 using NSubstitute;
@@ -19,14 +20,14 @@ namespace Kinoman.UnitTests
             _deserializerMock = Substitute.For<IDeserializer>();
             _downloadServiceMock = Substitute.For<IDownloadService>();
             _downloadServiceMock.DownloadData(Arg.Any<string>()).Returns("file content");
-            _sut = new DataProviderService(_downloadServiceMock,_deserializerMock);
+            _sut = new DataProviderService(_downloadServiceMock,_deserializerMock,Cities.Gdynia);
         }
 
         [Test]
-        public void CheckThatDownloadDataMethodIsCalled()
+        public async void CheckThatDownloadDataMethodIsCalledInDataProviderService()
         {
-            var result = _sut.GetCurrentData<MultiKinoShowing>();
-            _downloadServiceMock.Received(1).DownloadData(Arg.Any<string>());
+            var result = await _sut.GetCurrentData<MultiKinoShowing>();
+            await _downloadServiceMock.Received(1).DownloadData(Arg.Any<string>());
         }
 
     }

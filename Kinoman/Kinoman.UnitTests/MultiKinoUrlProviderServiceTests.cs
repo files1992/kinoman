@@ -1,4 +1,6 @@
-﻿using Kinoman.Services;
+﻿using Kinoman.Enums;
+using Kinoman.Services;
+using Kinoman.Services.Impl;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -8,6 +10,7 @@ namespace Kinoman.UnitTests
     {
         private IDownloadService _downloadServiceMock;
         private IDeserializer _deserializerMock;
+        private Cities _city = Cities.Gdynia;
         private MultiKinoUrlProviderService _sut;
 
         [TestFixtureSetUp]
@@ -16,13 +19,13 @@ namespace Kinoman.UnitTests
             _deserializerMock = Substitute.For<IDeserializer>();
             _downloadServiceMock = Substitute.For<IDownloadService>();
             _downloadServiceMock.DownloadData(Arg.Any<string>()).Returns("file content");
-            _sut = new MultiKinoUrlProviderService(_downloadServiceMock, _deserializerMock);
+            _sut = new MultiKinoUrlProviderService(_downloadServiceMock, _deserializerMock, _city);
         }
 
         [Test]
-        public void CheckThatDownloadDataMethodIsCalled()
+        public void CheckThatDownloadDataMethodIsCalledInUrlProviderService()
         {
-            var result = _sut.GetUrl();
+            var result = _sut.GetUrl(Arg.Any<Cities>());
             _downloadServiceMock.Received(1).DownloadData(Arg.Any<string>());
         }
     }
