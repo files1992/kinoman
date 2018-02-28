@@ -18,7 +18,7 @@ namespace Kinoman.UnitTests
         {
             var download = new DownloadService();
             var deserializer = new Deserializer();
-            var city = Cities.Gdynia;
+            var city = Cities.Warszawa;
             var urls = new MultiKinoUrlProviderService(download, deserializer, city);
             var data = new DataProviderService(download,deserializer,city,urls);
             var result = await data.GetCurrentData<MultiKinoShowing>();

@@ -65,8 +65,8 @@
     <Compile Include="Services\Impl\DataProviderService.cs" />
     <Compile Include="Services\Impl\Deserializer.cs" />
     <Compile Include="Services\Impl\DownloadService.cs" />
-    <Compile Include="Services\Impl\MultiKinoUrlProviderService.cs" />
-    <Compile Include="Services\IMultiKinoUrlProviderService.cs" />
+    <Compile Include="Services\Impl\UrlProviderService.cs" />
+    <Compile Include="Services\IUrlProviderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

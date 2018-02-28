@@ -7,7 +7,7 @@ using Kinoman.Enums;
 
 namespace Kinoman.Services.Impl
 {
-    public class MultiKinoUrlProviderService : IMultiKinoUrlProviderService
+    public class MultiKinoUrlProviderService : IUrlProviderService
     {
         private IDownloadService _downloadService;
         private IDeserializer _deserializer;

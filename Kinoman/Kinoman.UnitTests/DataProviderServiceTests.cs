@@ -11,7 +11,7 @@ namespace Kinoman.UnitTests
     {
         private IDownloadService _downloadServiceMock;
         private IDeserializer _deserializerMock;
-        private IMultiKinoUrlProviderService _multiKinoUrlProviderService;
+        private IUrlProviderService _urlProviderService;
         private DataProviderService _sut;
 
 
@@ -21,14 +21,14 @@ namespace Kinoman.UnitTests
             _deserializerMock = Substitute.For<IDeserializer>();
             _downloadServiceMock = Substitute.For<IDownloadService>();
             _downloadServiceMock.DownloadData(Arg.Any<string>()).Returns("file content");
-            _sut = new DataProviderService(_downloadServiceMock,_deserializerMock,Cities.Gdynia, _multiKinoUrlProviderService);
+            _sut = new DataProviderService(_downloadServiceMock,_deserializerMock,Cities.Gdynia, _urlProviderService);
         }
 
         [Test]
         public async void CheckThatDownloadDataMethodIsCalledInDataProviderService()
         {
             var result = await _sut.GetCurrentData<MultiKinoShowing>();
-            await _downloadServiceMock.Received(1).DownloadData(Arg.Any<string>());
+            await _downloadServiceMock.Received().DownloadData(Arg.Any<string>());
         }
 
     }

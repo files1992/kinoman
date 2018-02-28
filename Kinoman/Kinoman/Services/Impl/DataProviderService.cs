@@ -10,9 +10,9 @@ namespace Kinoman.Services.Impl
         private readonly IDeserializer _deserializer;
         private readonly IDownloadService _downloadService;
         private Cities _city;
-        private IMultiKinoUrlProviderService _urlProviderService;
+        private IUrlProviderService _urlProviderService;
 
-        public DataProviderService(IDownloadService downloadService, IDeserializer deserializer, Cities city,IMultiKinoUrlProviderService urlProviderService)
+        public DataProviderService(IDownloadService downloadService, IDeserializer deserializer, Cities city,IUrlProviderService urlProviderService)
         {
             _deserializer = deserializer;
             _downloadService = downloadService;
