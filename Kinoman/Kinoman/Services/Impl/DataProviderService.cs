@@ -12,7 +12,7 @@ namespace Kinoman.Services.Impl
         private Cities _city;
         private IUrlProviderService _urlProviderService;
 
-        public DataProviderService(IDownloadService downloadService, IDeserializer deserializer, Cities city,IUrlProviderService urlProviderService)
+        public DataProviderService(IDownloadService downloadService, IDeserializer deserializer, Cities city, IUrlProviderService urlProviderService)
         {
             _deserializer = deserializer;
             _downloadService = downloadService;
@@ -35,7 +35,7 @@ namespace Kinoman.Services.Impl
 
         public async Task<List<string>> GetUrlsList()
         {
-            var urlList = await _urlProviderService.GetUrl(_city);
+            var urlList = await _urlProviderService.GetUrl();
             return urlList;
         }
     }

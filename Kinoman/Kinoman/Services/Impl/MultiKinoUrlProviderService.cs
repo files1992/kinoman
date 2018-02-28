@@ -20,7 +20,7 @@ namespace Kinoman.Services.Impl
             _city = city;
             
         }
-        public async Task<List<string>> GetUrl(Cities city)
+        public async Task<List<string>> GetUrl()
         {
             List<string> urlList = new List<string>();
             var deserializedObject = await GetObject();

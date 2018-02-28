@@ -6,6 +6,6 @@ namespace Kinoman.Services
 {
     public interface IUrlProviderService
     {
-        Task<List<string>> GetUrl(Cities city);
+        Task<List<string>> GetUrl();
     }
 }
