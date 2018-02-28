@@ -54,7 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="DataProviderServiceTests.cs" />
     <Compile Include="DeserializerTests.cs" />
     <Compile Include="Enums\FileType.cs" />
     <Compile Include="GetTestData.cs" />
