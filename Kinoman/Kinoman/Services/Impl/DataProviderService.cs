@@ -9,21 +9,18 @@ namespace Kinoman.Services.Impl
     {
         private readonly IDeserializer _deserializer;
         private readonly IDownloadService _downloadService;
-        private Cities _city;
         private IUrlProviderService _urlProviderService;
 
-        public DataProviderService(IDownloadService downloadService, IDeserializer deserializer, Cities city, IUrlProviderService urlProviderService)
+        public DataProviderService(IDownloadService downloadService, IDeserializer deserializer, IUrlProviderService urlProviderService)
         {
             _deserializer = deserializer;
             _downloadService = downloadService;
-            _city = city;
             _urlProviderService = urlProviderService;
         }
-        public async Task<List<T>> GetCurrentData<T>()
+        public async Task<List<T>> GetCurrentData<T>(Cities city)
         {
             List<T> deserializedObjestsList = new List<T>();
-            var city = _city.ToString();
-            var urlList = await GetUrlsList();
+            var urlList = await GetUrlsList(city);
             foreach (var url in urlList)
             {
                 var stringData = await _downloadService.DownloadData(url);
@@ -33,9 +30,9 @@ namespace Kinoman.Services.Impl
             return deserializedObjestsList;
         }
 
-        public async Task<List<string>> GetUrlsList()
+        public async Task<List<string>> GetUrlsList(Cities city)
         {
-            var urlList = await _urlProviderService.GetUrl();
+            var urlList = await _urlProviderService.GetUrl(Cities.Gdynia);
             return urlList;
         }
     }

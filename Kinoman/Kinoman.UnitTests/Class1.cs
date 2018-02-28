@@ -20,9 +20,9 @@ namespace Kinoman.UnitTests
             IDownloadService download = new DownloadService();
             IDeserializer deserializer = new Deserializer();
             var city = Cities.Gdansk;
-            IUrlProviderService urls = new MultiKinoUrlProviderService(download, deserializer, city);
-            IDataProviderService data = new DataProviderService(download,deserializer,city,urls);
-            var result = await data.GetCurrentData<MultiKinoShowing>();
+            IUrlProviderService urls = new MultiKinoUrlProviderService(download, deserializer);
+            IDataProviderService data = new DataProviderService(download,deserializer,urls);
+            var result = await data.GetCurrentData<MultiKinoShowing>(city);
 
         }
     }
