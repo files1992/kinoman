@@ -16,7 +16,7 @@ namespace Kinoman.ConsoleApplication
         static void Main(string[] args)
         {
             var container = new UnityContainer();
-            var city = Cities.Gdynia;
+            var city = Cities.Warszawa;
             container.RegisterType<IDownloadService, DownloadService>();
             container.RegisterType<IDeserializer, Deserializer>();
             container.RegisterType<IUrlProviderService, MultiKinoUrlProviderService>();

@@ -32,7 +32,7 @@ namespace Kinoman.Services.Impl
 
         public async Task<List<string>> GetUrlsList(Cities city)
         {
-            var urlList = await _urlProviderService.GetUrl(Cities.Gdynia);
+            var urlList = await _urlProviderService.GetUrl(city);
             return urlList;
         }
     }
