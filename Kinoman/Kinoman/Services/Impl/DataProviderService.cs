@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Kinoman.Entities.MultiKino;
 using Kinoman.Enums;
 
@@ -9,20 +10,33 @@ namespace Kinoman.Services.Impl
         private readonly IDeserializer _deserializer;
         private readonly IDownloadService _downloadService;
         private Cities _city;
+        private IMultiKinoUrlProviderService _urlProviderService;
 
-        public DataProviderService(IDownloadService downloadService, IDeserializer deserializer, Cities city)
+        public DataProviderService(IDownloadService downloadService, IDeserializer deserializer, Cities city,IMultiKinoUrlProviderService urlProviderService)
         {
             _deserializer = deserializer;
             _downloadService = downloadService;
             _city = city;
+            _urlProviderService = urlProviderService;
         }
-        public async Task<T> GetCurrentData<T>()
+        public async Task<List<T>> GetCurrentData<T>()
         {
+            List<T> deserializedObjestsList = new List<T>();
             var city = _city.ToString();
+            var urlList = await GetUrlsList();
+            foreach (var url in urlList)
+            {
+                var stringData = await _downloadService.DownloadData(url);
+                var deserializedData = _deserializer.Deserialize<T>(stringData);
+                deserializedObjestsList.Add(deserializedData);
+            }
+            return deserializedObjestsList;
+        }
 
-            var stringData = _downloadService.DownloadData("d");
-            var deserializedData = _deserializer.Deserialize<T>(await stringData);
-            return deserializedData;
+        public async Task<List<string>> GetUrlsList()
+        {
+            var urlList = await _urlProviderService.GetUrl(_city);
+            return urlList;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Kinoman.Entities.MultiKino;
 
@@ -6,6 +7,6 @@ namespace Kinoman.Services
 {
     public interface IDataProviderService
     {
-        Task<T> GetCurrentData<T>();
+        Task<List<T>> GetCurrentData<T>();
     }
 }

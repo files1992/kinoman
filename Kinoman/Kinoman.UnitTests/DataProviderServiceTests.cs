@@ -11,6 +11,7 @@ namespace Kinoman.UnitTests
     {
         private IDownloadService _downloadServiceMock;
         private IDeserializer _deserializerMock;
+        private IMultiKinoUrlProviderService _multiKinoUrlProviderService;
         private DataProviderService _sut;
 
 
@@ -20,7 +21,7 @@ namespace Kinoman.UnitTests
             _deserializerMock = Substitute.For<IDeserializer>();
             _downloadServiceMock = Substitute.For<IDownloadService>();
             _downloadServiceMock.DownloadData(Arg.Any<string>()).Returns("file content");
-            _sut = new DataProviderService(_downloadServiceMock,_deserializerMock,Cities.Gdynia);
+            _sut = new DataProviderService(_downloadServiceMock,_deserializerMock,Cities.Gdynia, _multiKinoUrlProviderService);
         }
 
         [Test]

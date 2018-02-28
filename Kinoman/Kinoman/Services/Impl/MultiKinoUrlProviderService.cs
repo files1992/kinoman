@@ -12,7 +12,6 @@ namespace Kinoman.Services.Impl
         private IDownloadService _downloadService;
         private IDeserializer _deserializer;
         private Cities _city;
-        private List<String> _urls;
 
         public MultiKinoUrlProviderService(IDownloadService downloadService,IDeserializer deserializer, Cities city)
         {
@@ -23,15 +22,16 @@ namespace Kinoman.Services.Impl
         }
         public async Task<List<string>> GetUrl(Cities city)
         {
+            List<string> urlList = new List<string>();
             var deserializedObject = await GetObject();
             var cityNames = deserializedObject.Venues.SelectMany(v => v.Cinemas)
                 .Where(c => c.Name.Contains(_city.ToString()));
             foreach (var cityName in cityNames)
             {
                 var url = UrlBuilder(cityName.Id);
-                _urls.Add(url);
+                urlList.Add(url);
             }
-            return _urls;
+            return urlList;
         }
 
         private async Task<MultiKinoCity> GetObject()
