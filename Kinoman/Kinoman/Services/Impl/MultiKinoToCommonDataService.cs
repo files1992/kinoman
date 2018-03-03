@@ -19,24 +19,27 @@ namespace Kinoman.Services.Impl
         {
             List<Showing> commonShowings = new List<Showing>();
             var data = await _dataProviderService.GetCurrentData<MultiKinoShowing>(city);
-            var showing = new Showing()
+            foreach (var film in data[0].Films)
             {
-                Movie = new Movie()
+                var showing = new Showing()
                 {
-                    Description = data[0].Films[5].SynopsisShort,
-                    Duration = 100,
-                    Tittle = data[0].Films[5].Title
-                },
-                CinemaInfo = new CinemaInfo()
-                {
-                    City = Cities.Gdansk,
-                    Company = "MultiKino",
-                    Name = "Batory"
-                },
-                BeginsAt = new DateTime(2018,03,03,20,20,00),
-                IsPremeire = false     
-            };
-            commonShowings.Add(showing);
+                    Movie = new Movie()
+                    {
+                        Description = film.SynopsisShort,
+                        Duration = 100,
+                        Tittle = film.Title
+                    },
+                    CinemaInfo = new CinemaInfo()
+                    {
+                        City = Cities.Gdansk,
+                        Company = "MultiKino",
+                        Name = "Batory"
+                    },
+                    BeginsAt = new DateTime(2018, 03, 03, 20, 20, 00),
+                    IsPremeire = false
+                };
+                commonShowings.Add(showing);
+            }
             return commonShowings;
         }
     }

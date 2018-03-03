@@ -9,6 +9,22 @@
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="176,33,0,0" VerticalAlignment="Top" Width="295" Height="63" Click="Button_Click"/>
         <TextBox Name="textBox" HorizontalAlignment="Left" Height="121" Margin="176,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295"/>
+        <ListView Name="ListView" HorizontalAlignment="Left" Height="253" Margin="10,263,0,0" VerticalAlignment="Top" Width="696">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Movie.Tittle}" Header="Tittle" Width="Auto"  />
+                    <GridViewColumn DisplayMemberBinding="{Binding Movie.Description}" Header="Description" Width="Auto"  />
+                    <GridViewColumn DisplayMemberBinding="{Binding Movie.Duration}" Header="Duration" Width="Auto"  />
+                    <GridViewColumn DisplayMemberBinding="{Binding CinemaInfo.City}" Header="City" Width="Auto"  />
+                    <GridViewColumn DisplayMemberBinding="{Binding CinemaInfo.Name}" Header="Cienema Name" Width="Auto"  />
+                    <GridViewColumn DisplayMemberBinding="{Binding CinemaInfo.Company}" Header="Cinema Company" Width="Auto"  />
+                    <GridViewColumn DisplayMemberBinding="{Binding BeginsAt}" Header="Begins At" Width="Auto"  />
+                    <GridViewColumn DisplayMemberBinding="{Binding IsPremeire}" Header="Premiere session" Width="Auto"  />
+
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>
