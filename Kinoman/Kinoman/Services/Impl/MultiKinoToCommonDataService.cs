@@ -23,9 +23,9 @@ namespace Kinoman.Services.Impl
             {
                 Movie = new Movie()
                 {
-                    Description = data[0].Films[0].Title,
+                    Description = data[0].Films[5].SynopsisShort,
                     Duration = 100,
-                    Tittle = ""
+                    Tittle = data[0].Films[5].Title
                 },
                 CinemaInfo = new CinemaInfo()
                 {

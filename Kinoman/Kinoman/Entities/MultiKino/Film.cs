@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Kinoman.Entities.MultiKino
 {
@@ -15,6 +16,7 @@ namespace Kinoman.Entities.MultiKino
         public string ImagePoster { get; set; }
         public string CertImage { get; set; }
         public object CertDesc { get; set; }
+        [JsonProperty(PropertyName = "synopsis_short")]
         public string SynopsisShort { get; set; }
         public string InfoRelease { get; set; }
         public bool InfoRunningtimeVisible { get; set; }
