@@ -34,7 +34,7 @@ namespace Kinoman.WPFApplication
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             var container = new UnityContainer();
-            var city = Cities.Gdynia;
+            var city = Cities.Poznan;
             container.RegisterType<IDownloadService, DownloadService>();
             container.RegisterType<IDeserializer, Deserializer>();
             container.RegisterType<IUrlProviderService, MultiKinoUrlProviderService>();
@@ -54,6 +54,7 @@ namespace Kinoman.WPFApplication
             textBox.Text = $"Movie tittle: {movieTitle} \nMovie description {movieDesc}";
 
             ListView.ItemsSource = show;
+ 
 
         }
 

@@ -19,26 +19,32 @@ namespace Kinoman.Services.Impl
         {
             List<Showing> commonShowings = new List<Showing>();
             var data = await _dataProviderService.GetCurrentData<MultiKinoShowing>(city);
-            foreach (var film in data[0].Films)
+            var cinemas = _dataProviderService.GetCityInfo();
+            int i = 0;
+            foreach (var cinema in cinemas)
             {
-                var showing = new Showing()
+                foreach (var film in data[i].Films)
                 {
-                    Movie = new Movie()
+                    
+                    var showing = new Showing()
                     {
-                        Description = film.SynopsisShort,
-                        Duration = 100,
-                        Tittle = film.Title
-                    },
-                    CinemaInfo = new CinemaInfo()
-                    {
-                        City = Cities.Gdansk,
-                        Company = "MultiKino",
-                        Name = "Batory"
-                    },
-                    BeginsAt = new DateTime(2018, 03, 03, 20, 20, 00),
-                    IsPremeire = false
-                };
-                commonShowings.Add(showing);
+                        Movie = new Movie()
+                        {
+                            Description = film.SynopsisShort,
+                            Duration = film.InfoRunningtime,
+                            Tittle = film.Title
+                        },
+                        CinemaInfo = new CinemaInfo()
+                        {
+                            City = city,
+                            Company = "MultiKino",
+                            Name = cinema.Name
+                        },
+                        BeginsAt = new DateTime(2018, 03, 03, 20, 20, 00),
+                        IsPremeire = false
+                    };
+                    commonShowings.Add(showing);
+                }
             }
             return commonShowings;
         }

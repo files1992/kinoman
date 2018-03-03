@@ -11,6 +11,8 @@ namespace Kinoman.Services.Impl
     {
         private IDownloadService _downloadService;
         private IDeserializer _deserializer;
+        private IEnumerable<Cinema> _cinemasListInfo;
+
 
 
         public MultiKinoUrlProviderService(IDownloadService downloadService,IDeserializer deserializer)
@@ -26,6 +28,7 @@ namespace Kinoman.Services.Impl
             var deserializedObject = await GetObject();
             var cityNames = deserializedObject.Venues.SelectMany(v => v.Cinemas)
                 .Where(c => c.Name.Contains(city.ToString()));
+            _cinemasListInfo = cityNames;
             foreach (var cityName in cityNames)
             {
                 var url = UrlBuilder(cityName.Id);
@@ -45,6 +48,11 @@ namespace Kinoman.Services.Impl
         {
             var url = "https://multikino.pl/data/filmswithshowings/" + cityStrId;
             return url;
+        }
+
+        public IEnumerable<Cinema> CinemasListInfo()
+        {
+            return _cinemasListInfo;
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Kinoman.Entities.MultiKino
         public string SynopsisShort { get; set; }
         public string InfoRelease { get; set; }
         public bool InfoRunningtimeVisible { get; set; }
+        [JsonProperty(PropertyName = "info_runningtime")]
         public string InfoRunningtime { get; set; }
         public string InfoAge { get; set; }
         public string PegiClass { get; set; }

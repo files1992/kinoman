@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Kinoman.Entities.MultiKino;
+using Kinoman.Entities.MultiKino.Cities;
 using Kinoman.Enums;
 
 namespace Kinoman.Services.Impl
@@ -35,5 +36,11 @@ namespace Kinoman.Services.Impl
             var urlList = await _urlProviderService.GetUrl(city);
             return urlList;
         }
+
+        public IEnumerable<Cinema> GetCityInfo()
+        {
+            return _urlProviderService.CinemasListInfo();
+        }
+
     }
 }
