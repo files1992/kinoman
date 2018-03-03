@@ -68,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\Common\CinemaInfo.cs" />
+    <Compile Include="Entities\Common\Movie.cs" />
+    <Compile Include="Entities\Common\Showing.cs" />
     <Compile Include="Entities\MultiKino\Categories.cs" />
     <Compile Include="Entities\MultiKino\CategoriesName.cs" />
     <Compile Include="Entities\MultiKino\Cities\Cinema.cs" />
@@ -77,18 +80,20 @@
     <Compile Include="Entities\MultiKino\MultiKinoShowing.cs" />
     <Compile Include="Entities\MultiKino\PromoLabels.cs" />
     <Compile Include="Entities\MultiKino\PromoLabelsName.cs" />
-    <Compile Include="Entities\MultiKino\Showing.cs" />
+    <Compile Include="Entities\MultiKino\Showings.cs" />
     <Compile Include="Entities\MultiKino\ShowingType.cs" />
     <Compile Include="Entities\MultiKino\Tag.cs" />
     <Compile Include="Entities\MultiKino\Time.cs" />
     <Compile Include="Enums\Cities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ICommonDataService.cs" />
     <Compile Include="Services\IDataProviderService.cs" />
     <Compile Include="Services\IDeserializer.cs" />
     <Compile Include="Services\IDownloadService.cs" />
     <Compile Include="Services\Impl\DataProviderService.cs" />
     <Compile Include="Services\Impl\Deserializer.cs" />
     <Compile Include="Services\Impl\DownloadService.cs" />
+    <Compile Include="Services\Impl\MultiKinoToCommonDataService.cs" />
     <Compile Include="Services\Impl\MultiKinoUrlProviderService.cs" />
     <Compile Include="Services\IUrlProviderService.cs" />
   </ItemGroup>

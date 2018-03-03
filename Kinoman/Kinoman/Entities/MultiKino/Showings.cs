@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Kinoman.Entities.Common;
 
 namespace Kinoman.Entities.MultiKino
 {
-    public partial class Showing
+    public partial class Showings
     {
         public string DatePrefix { get; set; }
         public string DateDay { get; set; }

@@ -6,7 +6,7 @@ namespace Kinoman.Entities.MultiKino
     {
         public long OriginalSCount { get; set; }
         public long Sortable { get; set; }
-        public List<Showing> Showings { get; set; }
+        public List<Showings> Showings { get; set; }
         public bool ShowShowings { get; set; }
         public string FilmPageName { get; set; }
         public string Title { get; set; }

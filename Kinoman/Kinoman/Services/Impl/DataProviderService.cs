@@ -30,7 +30,7 @@ namespace Kinoman.Services.Impl
             return deserializedObjestsList;
         }
 
-        public async Task<List<string>> GetUrlsList(Cities city)
+        private async Task<List<string>> GetUrlsList(Cities city)
         {
             var urlList = await _urlProviderService.GetUrl(city);
             return urlList;

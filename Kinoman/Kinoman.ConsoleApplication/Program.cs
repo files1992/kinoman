@@ -21,12 +21,17 @@ namespace Kinoman.ConsoleApplication
             container.RegisterType<IDeserializer, Deserializer>();
             container.RegisterType<IUrlProviderService, MultiKinoUrlProviderService>();
             container.RegisterType<IDataProviderService,DataProviderService>();
+            container.RegisterType<ICommonDataService, MultiKinoToCommonDataService>();
 
 
+            //var dataProviderService = container.Resolve<IDataProviderService>();
 
-            var dataProviderService = container.Resolve<IDataProviderService>();
+            //var result = dataProviderService.GetCurrentData<MultiKinoShowing>(city).Result;
 
-            var result = dataProviderService.GetCurrentData<MultiKinoShowing>(city).Result;
+            
+            var commonTypeShowing = container.Resolve<ICommonDataService>();
+
+            var result = commonTypeShowing.GetCommonData(city).Result;
 
         }
     }
