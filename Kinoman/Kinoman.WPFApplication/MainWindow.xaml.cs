@@ -34,7 +34,7 @@ namespace Kinoman.WPFApplication
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             var container = new UnityContainer();
-            var city = Cities.Warszawa;
+            var city = Cities.Gdynia;
             container.RegisterType<IDownloadService, DownloadService>();
             container.RegisterType<IDeserializer, Deserializer>();
             container.RegisterType<IUrlProviderService, MultiKinoUrlProviderService>();
