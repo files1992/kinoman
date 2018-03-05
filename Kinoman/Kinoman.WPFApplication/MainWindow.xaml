@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kinoman.WPFApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="556.103" Width="712.748">
+        Title="MainWindow" Height="Auto" Width="Auto">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="176,33,0,0" VerticalAlignment="Top" Width="295" Height="63" Click="Button_Click"/>
-        <TextBox Name="textBox" HorizontalAlignment="Left" Height="121" Margin="176,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295"/>
-        <ListView Name="ListView" HorizontalAlignment="Left" Height="253" Margin="10,263,0,0" VerticalAlignment="Top" Width="Auto">
+        <Button Content="Get movies" HorizontalAlignment="Left" Margin="20,73,0,0" VerticalAlignment="Top" Width="126" Height="25" Click="Button_Click"/>
+        <ListView Name="ListView" HorizontalAlignment="Left" Height="Auto" Margin="10,130,-0.4,-10.4" VerticalAlignment="Top" Width="Auto">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Movie.Tittle}" Header="Tittle" Width="Auto"  />
@@ -25,6 +24,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <ComboBox Name="cmbCities" HorizontalAlignment="Left" Margin="20,44,0,0" VerticalAlignment="Top" Width="126" Height="24" SelectionChanged="ComboBox_SelectionChanged"/>
 
     </Grid>
 </Window>

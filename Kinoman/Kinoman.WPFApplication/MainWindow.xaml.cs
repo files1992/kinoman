@@ -29,12 +29,13 @@ namespace Kinoman.WPFApplication
         public MainWindow()
         {
             InitializeComponent();
+            cmbCities.ItemsSource = Enum.GetValues(typeof(Cities));
         }
         private ObservableCollection<Showing> show;
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             var container = new UnityContainer();
-            var city = Cities.Poznan;
+            var city = (Cities)cmbCities.SelectedValue;
             container.RegisterType<IDownloadService, DownloadService>();
             container.RegisterType<IDeserializer, Deserializer>();
             container.RegisterType<IUrlProviderService, MultiKinoUrlProviderService>();
@@ -48,15 +49,13 @@ namespace Kinoman.WPFApplication
             {
                 show.Add(item);
             }
-
-            var movieTitle = result[0].Movie.Tittle;
-            var movieDesc = result[0].Movie.Description;
-            textBox.Text = $"Movie tittle: {movieTitle} \nMovie description {movieDesc}";
-
             ListView.ItemsSource = show;
- 
-
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+         
+
+        }
     }
 }
