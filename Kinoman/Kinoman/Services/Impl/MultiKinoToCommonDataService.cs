@@ -45,6 +45,8 @@ namespace Kinoman.Services.Impl
                     };
                     commonShowings.Add(showing);
                 }
+
+                i++;
             }
             return commonShowings;
         }
