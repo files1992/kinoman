@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using Kinoman.Entities.Common;
+using Newtonsoft.Json;
 
 namespace Kinoman.Entities.MultiKino
 {
     public partial class Showings
     {
         public string DatePrefix { get; set; }
+        [JsonProperty(PropertyName = "date_day")]
         public string DateDay { get; set; }
         public string DateShort { get; set; }
         public string DateLong { get; set; }

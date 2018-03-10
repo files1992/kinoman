@@ -6,7 +6,8 @@ namespace Kinoman.Entities.Common
     {
         public Movie Movie { get; set; }
         public CinemaInfo CinemaInfo { get; set; }
-        public DateTime BeginsAt { get; set; }
-        public bool IsPremeire { get; set; }
+        public string Date { get; set; }
+        public string BeginsAt { get; set; }
+        public string IsPremeire { get; set; }
     }
 }

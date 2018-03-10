@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Kinoman.Entities.MultiKino
 {
@@ -13,6 +15,7 @@ namespace Kinoman.Entities.MultiKino
         public List<Tag> Tags { get; set; }
         public object EventInfo { get; set; }
         public bool Hidden { get; set; }
-        public System.DateTimeOffset Date { get; set; }
+        [JsonProperty(PropertyName = "date")]
+        public DateTime Date { get; set; }
     }
 }

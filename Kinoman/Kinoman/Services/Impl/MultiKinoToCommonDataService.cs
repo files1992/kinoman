@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Kinoman.Entities.Common;
 using Kinoman.Entities.MultiKino;
@@ -25,25 +26,28 @@ namespace Kinoman.Services.Impl
             {
                 foreach (var film in data[i].Films)
                 {
-                    
-                    var showing = new Showing()
+                    foreach (var time in film.Showings.SelectMany(x => x.Times))
                     {
-                        Movie = new Movie()
-                        {
-                            Description = film.SynopsisShort,
-                            Duration = film.InfoRunningtime,
-                            Tittle = film.Title
-                        },
-                        CinemaInfo = new CinemaInfo()
-                        {
-                            City = city,
-                            Company = "MultiKino",
-                            Name = cinema.Name
-                        },
-                        BeginsAt = new DateTime(2018, 03, 03, 20, 20, 00),
-                        IsPremeire = false
-                    };
-                    commonShowings.Add(showing);
+                            var showing = new Showing()
+                            {
+                                Movie = new Movie()
+                                {
+                                    Description = film.SynopsisShort,
+                                    Duration = film.InfoRunningtime,
+                                    Tittle = film.Title
+                                },
+                                CinemaInfo = new CinemaInfo()
+                                {
+                                    City = city,
+                                    Company = "MultiKino",
+                                    Name = cinema.Name
+                                },
+                                Date = time.Date.ToString("dd MMMM yyyy"),
+                                BeginsAt = time.Date.ToString("HH:mm"),
+                                IsPremeire = "to do" //film.PromoLabels?.Names[0].Name
+                            };
+                            commonShowings.Add(showing);
+                    }
                 }
 
                 i++;
