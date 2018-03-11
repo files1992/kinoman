@@ -18,7 +18,6 @@ namespace Kinoman.Services.Impl
         }
         public async Task<List<Showing>> GetCommonData(Cities city)
         {
-            var premieraTag = "PREMIERA";
             List<Showing> commonShowings = new List<Showing>();
             var data = await _dataProviderService.GetCurrentData<MultiKinoShowing>(city);
             var cinemas = _dataProviderService.GetCityInfo();
