@@ -19,7 +19,7 @@
                     <GridViewColumn DisplayMemberBinding="{Binding CinemaInfo.Company}" Header="Cinema Company" Width="Auto"  />
                     <GridViewColumn DisplayMemberBinding="{Binding Date}" Header="Date" Width="Auto"  />
                     <GridViewColumn DisplayMemberBinding="{Binding BeginsAt}" Header="Begins At" Width="Auto"  />
-                    <GridViewColumn DisplayMemberBinding="{Binding IsPremeire}" Header="Premiere session" Width="Auto"  />
+                    <GridViewColumn DisplayMemberBinding="{Binding ShowingType}" Header="Showing type" Width="Auto"  />
 
                     <GridViewColumn/>
                 </GridView>

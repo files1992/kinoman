@@ -42,6 +42,7 @@ namespace Kinoman.Entities.MultiKino
         public ShowingType ShowingType { get; set; }
         public string RankVotes { get; set; }
         public string RankValue { get; set; }
+        [JsonProperty(PropertyName = "promo_labels")]
         public PromoLabels PromoLabels { get; set; }
         public System.DateTimeOffset ReleaseDate { get; set; }
         public string Type { get; set; }

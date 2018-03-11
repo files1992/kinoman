@@ -8,6 +8,6 @@ namespace Kinoman.Entities.Common
         public CinemaInfo CinemaInfo { get; set; }
         public string Date { get; set; }
         public string BeginsAt { get; set; }
-        public string IsPremeire { get; set; }
+        public string ShowingType { get; set; }
     }
 }

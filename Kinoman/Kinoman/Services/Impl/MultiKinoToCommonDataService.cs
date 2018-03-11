@@ -18,15 +18,16 @@ namespace Kinoman.Services.Impl
         }
         public async Task<List<Showing>> GetCommonData(Cities city)
         {
+            var premieraTag = "PREMIERA";
             List<Showing> commonShowings = new List<Showing>();
             var data = await _dataProviderService.GetCurrentData<MultiKinoShowing>(city);
             var cinemas = _dataProviderService.GetCityInfo();
-            int i = 0;
+            int cienamIndex = 0;
             foreach (var cinema in cinemas)
             {
-                foreach (var film in data[i].Films)
+                foreach (var film in data[cienamIndex].Films)
                 {
-                    foreach (var time in film.Showings.SelectMany(x => x.Times))
+                    foreach (var time in film.Showings.SelectMany(f => f.Times))
                     {
                             var showing = new Showing()
                             {
@@ -44,13 +45,13 @@ namespace Kinoman.Services.Impl
                                 },
                                 Date = time.Date.ToString("dd MMMM yyyy"),
                                 BeginsAt = time.Date.ToString("HH:mm"),
-                                IsPremeire = "to do" //film.PromoLabels?.Names[0].Name
+                                ShowingType = film.PromoLabels?.Names.Select(n => n.Name).FirstOrDefault()
                             };
                             commonShowings.Add(showing);
                     }
                 }
 
-                i++;
+                cienamIndex++;
             }
             return commonShowings;
         }
