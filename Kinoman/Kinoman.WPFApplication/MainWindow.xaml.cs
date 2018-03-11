@@ -35,21 +35,31 @@ namespace Kinoman.WPFApplication
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             var container = new UnityContainer();
-            var city = (Cities)cmbCities.SelectedValue;
-            container.RegisterType<IDownloadService, DownloadService>();
-            container.RegisterType<IDeserializer, Deserializer>();
-            container.RegisterType<IUrlProviderService, MultiKinoUrlProviderService>();
-            container.RegisterType<IDataProviderService, DataProviderService>();
-            container.RegisterType<ICommonDataService, MultiKinoToCommonDataService>();
-
-            var commonTypeShowing = container.Resolve<ICommonDataService>();
-            var result = await commonTypeShowing.GetCommonData(city);
-            show = new ObservableCollection<Showing>();
-            foreach (var item in result)
+            if (cmbCities.SelectedValue != null)
             {
-                show.Add(item);
+                var city = (Cities)cmbCities?.SelectedValue;
+                container.RegisterType<IDownloadService, DownloadService>();
+                container.RegisterType<IDeserializer, Deserializer>();
+                container.RegisterType<IUrlProviderService, MultiKinoUrlProviderService>();
+                container.RegisterType<IDataProviderService, DataProviderService>();
+                container.RegisterType<ICommonDataService, MultiKinoToCommonDataService>();
+
+                var commonTypeShowing = container.Resolve<ICommonDataService>();
+                var result = await commonTypeShowing.GetCommonData(city);
+                show = new ObservableCollection<Showing>();
+                foreach (var item in result)
+                {
+                    show.Add(item);
+                }
+                ListView.ItemsSource = show;
             }
-            ListView.ItemsSource = show;
+            else
+            {
+                MessageBox.Show("Please select a city","Error");
+
+            }
+
+            
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
