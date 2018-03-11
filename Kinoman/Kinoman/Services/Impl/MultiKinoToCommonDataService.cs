@@ -21,10 +21,10 @@ namespace Kinoman.Services.Impl
             List<Showing> commonShowings = new List<Showing>();
             var data = await _dataProviderService.GetCurrentData<MultiKinoShowing>(city);
             var cinemas = _dataProviderService.GetCityInfo();
-            int cienamIndex = 0;
+            var cinemaIndex = 0;
             foreach (var cinema in cinemas)
             {
-                foreach (var film in data[cienamIndex].Films)
+                foreach (var film in data[cinemaIndex].Films)
                 {
                     foreach (var time in film.Showings.SelectMany(f => f.Times))
                     {
@@ -44,13 +44,13 @@ namespace Kinoman.Services.Impl
                                 },
                                 Date = time.Date.ToString("dd MMMM yyyy"),
                                 BeginsAt = time.Date.ToString("HH:mm"),
-                                ShowingType = film.PromoLabels?.Names.Select(n => n.Name).FirstOrDefault()
+                                ShowingType = film.PromoLabels.Names.Select(n => n.Name).FirstOrDefault()
                             };
                             commonShowings.Add(showing);
                     }
                 }
 
-                cienamIndex++;
+                cinemaIndex++;
             }
             return commonShowings;
         }
